@@ -1,4 +1,5 @@
 import createElement from '../dom/createElement';
+import updateElement from '../dom/updateElement';
 import render from '../dom/render';
 import mountElement from '../dom/mount';
 
@@ -17,11 +18,12 @@ const createVApp = (count: number) =>  createElement('div', {
 });
 
 let count = 0;
-const $app = render(createVApp(count));
-let $rootEl = mountElement($app, document.getElementById('app'));
+const app = createVApp(count);
+const $app = render(app);
+const $rootEl = mountElement($app, document.getElementById('app'));
 
 setInterval(() => {
   count++;
-  const updatedVApp = render(createVApp(count));
-  $rootEl = mountElement(updatedVApp, $rootEl);
-}, 10000);
+  const updatedVApp = createVApp(count);
+  updateElement($rootEl as Element, updatedVApp, app);
+}, 5000);

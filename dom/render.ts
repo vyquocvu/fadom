@@ -1,8 +1,8 @@
 import { VElement } from "../types/vdom";
 
 function render(vNode: VElement) {
-  const { tagName, attrs, children } = vNode;
-  let element = document.createElement(tagName);
+  const { tagName, attrs = {}, children = []  } = vNode;
+  const element = document.createElement(tagName);
   // insert all children elements
   children.forEach((child) => {
     if (typeof child === "string") {
