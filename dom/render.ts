@@ -15,7 +15,8 @@ function render(vNode: VElement) {
   });
   // if it has attributes it adds them to the element
   if (Object.keys(attrs).length) {
-    for (const [key, value] of Object.entries(attrs)) {
+    for (const key in attrs) {
+      const value = attrs[key];
       element.setAttribute(key, value as string);
     }
   }
