@@ -1,6 +1,5 @@
 {
-  "name": "phandom",
-  "private": true,
+  "name": "fadom",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
